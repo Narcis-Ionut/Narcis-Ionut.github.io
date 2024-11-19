@@ -65,6 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>A dynamic React-based application showcasing a virtual real estate marketplace. Features intuitive design and smooth UI interactions.</p>
         <a href="https://github.com/Narcis-Ionut/React-FollowUpProject-HousesMarketplace" target="_blank">View on GitHub</a>
       </div>
+      <!-- Project 3 -->
+     <div class="project-card">
+       <h3>Portfolio Website</h3>
+       <p>A personal portfolio website showcasing my skills and projects, built with modern web technologies.</p>
+       <a href="https://github.com/Narcis-Ionut/Narcis-Ionut.github.io/tree/main" target="_blank">View on GitHub</a>
+     </div>
     </div>
   </div>
 </section>
