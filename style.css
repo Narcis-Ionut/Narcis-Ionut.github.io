@@ -134,9 +134,9 @@ main {
 
 .section-content {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: left;
+  flex-direction: column; /* Stack the children vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text within elements */
 }
 
 .section-content img {
@@ -194,19 +194,46 @@ main {
 .project-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; /* Center the project cards */
+  gap: 20px; /* Space between items */
   margin-top: 20px;
+  max-width: 1200px; /* Set a maximum width for the container */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-card {
-  background-color: var(--light-color);
+  flex: 1 1 calc(25% - 40px); /* Four cards per row */
+  max-width: calc(25% - 40px);
+  min-width: 250px; /* Prevent cards from getting too small */
   padding: 20px;
-  margin: 10px;
-  flex: 1 1 calc(33% - 40px);
-  max-width: calc(33% - 40px);
   border: 1px solid var(--dark-color);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  background-color: var(--light-color); /* For visual separation */
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 1024px) {
+  .project-card {
+    flex: 1 1 calc(33.333% - 40px); /* Three cards per row */
+    max-width: calc(33.333% - 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 calc(50% - 40px); /* Two cards per row */
+    max-width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    flex: 1 1 100%; /* One card per row */
+    max-width: 100%;
+  }
 }
 
 .project-card h3 {
