@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narcis Gusa - Full-Stack Developer & AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --accent-color: #00d4ff;
+    --light-bg: #f8f9fa;
+    --dark-text: #1a1a2e;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --border-radius: 20px;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Modern body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Animated background patterns */
+.animated-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.03;
+    background-image: 
+        radial-gradient(circle at 20% 80%, #667eea 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #764ba2 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, #f093fb 0%, transparent 50%);
+    animation: bgAnimation 20s ease infinite;
+}
+
+@keyframes bgAnimation {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+}
+
+/* Modern Header */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.2); }
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Main content */
+main {
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+/* Hero Section 2025 */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    animation: heroFadeIn 1s ease-out;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-wrapper {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.profile-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+    position: relative;
+    animation: profileFloat 6s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #fff, var(--accent-color), #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+    to { background-position: 200% center; }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Modern section styling */
+.modern-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--hover-shadow);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+/* Projects showcase */
+.projects-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    group: true;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--hover-shadow);
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.project-image i {
+    font-size: 4rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    padding: 0.5rem 1.5rem;
+    background: white;
+    color: var(--dark-text);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    background: var(--light-bg);
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Skills section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-text);
+}
+
+.skill-items {
+    display: grid;
+    gap: 1rem;
+}
+
+.skill-item {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    color: #667eea;
+}
+
+/* Stats section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Contact form modern */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #667eea;
+}
+
+.contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#form-messages {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+}
+
+#form-messages.success {
+    background: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+#form-messages.error {
+    background: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+/* Blog section */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--hover-shadow);
+}
+
+.blog-header {
+    height: 200px;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.blog-date {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.blog-content {
+    padding: 2rem;
+}
+
+.blog-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: var(--transition);
+}
+
+.blog-link:hover {
+    gap: 1rem;
+}
+
+/* Footer modern */
+footer {
+    background: var(--dark-gradient);
+    color: white;
+    padding: 3rem 0 2rem;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-showcase,
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Loading animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+}
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo">NG</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
+                <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="content">
+        <!-- Content will be loaded dynamically -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Narcis Gusa</h3>
+                    <p>Full-Stack Developer specializing in modern web, mobile, and AI solutions.</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/Narcis-Ionut" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/narcis-gusa" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:narcis.gusa@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://twitter.com/narcisgusa" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="#" data-page="services" style="color: rgba(255,255,255,0.8); text-decoration: none;">Services</a></li>
+                        <li><a href="#" data-page="projects" style="color: rgba(255,255,255,0.8); text-decoration: none;">Portfolio</a></li>
+                        <li><a href="#" data-page="blog" style="color: rgba(255,255,255,0.8); text-decoration: none;">Blog</a></li>
+                        <li><a href="#" data-page="contact" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="color: rgba(255,255,255,0.8);">Android Development</li>
+                        <li style="color: rgba(255,255,255,0.8);">Web Applications</li>
+                        <li style="color: rgba(255,255,255,0.8);">AI Integration</li>
+                        <li style="color: rgba(255,255,255,0.8);">Technical Guides</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Narcis Gusa. Built with passion and modern technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+// Initialize EmailJS
+(function() {
+    emailjs.init("ftOIgd9YqpxkUMgSN");
+})();
+
+// DOM Elements
+const content = document.getElementById('content');
+const navLinks = document.getElementById('navLinks');
+const menuToggle = document.getElementById('menuToggle');
+const header = document.getElementById('header');
+const scrollTop = document.getElementById('scrollTop');
+const loading = document.getElementById('loading');
+
+// Page content
+const pages = {
+    home: `
+        <section class="hero">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-content">
+                <div class="profile-wrapper">
+                    <div class="profile-container">
+                        <img src="profile.jpeg" alt="Narcis Gusa" class="profile-pic">
+                    </div>
+                </div>
+                <h1>Narcis Gusa</h1>
+                <p class="hero-subtitle">Full-Stack Developer & AI Innovation Specialist</p>
+                <div class="hero-tags">
+                    <span class="tag"><i class="fas fa-mobile-alt"></i> Android Apps</span>
+                    <span class="tag"><i class="fas fa-globe"></i> Web Development</span>
+                    <span class="tag"><i class="fas fa-robot"></i> AI/MLX</span>
+                    <span class="tag"><i class="fas fa-book"></i> Technical Guides</span>
+                    <span class="tag"><i class="fas fa-cloud"></i> Cloud Solutions</span>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="loadPage('projects')">
+                        View Portfolio <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-secondary" onclick="loadPage('contact')">
+                        Let's Connect <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    `,
+    
+    about: `
+        <section class="modern-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <p>From Business Professional to Full-Stack Developer</p>
+                </div>
+                
+                <div class="about-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">My Journey</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            With a foundation in international business management, I've transformed my career into 
+                            full-stack development, specializing in cutting-edge technologies and AI implementations.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                            I'm passionate about creating innovative solutions that bridge the gap between complex 
+                            technology and user-friendly experiences. From Android applications to AI-powered web 
+                            platforms, I bring ideas to life through code.
+                        </p>
+                        <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 2rem;">
+                            <div class="stat-card">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Frontend Development</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fab fa-react"></i>
+                                    <span>React & Next.js</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-js"></i>
+                                    <span>JavaScript/TypeScript</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-paint-brush"></i>
+                                    <span>Modern CSS & Tailwind</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Backend & Mobile</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python & Django</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fab fa-android"></i>
+                                    <span>Android Development</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>PostgreSQL & MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>AI & Cloud</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>MLX & Local LLMs</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>AWS & Cloud Deploy</span>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-robot"></i>
+                                    <span>AI Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `,
+    
+    services: `
+        <section class="modern-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Services I Offer</h2>
+                    <p>Comprehensive development solutions for modern businesses</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Android App Development</h3>
+                        <p>Native Android applications with modern UI/UX, optimized performance, and seamless user experiences using Kotlin and Java.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Custom Android Apps</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Material Design UI</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> API Integration</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Play Store Deployment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Full-stack web applications using modern frameworks, responsive design, and optimized performance for all devices.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> React/Next.js Apps</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> E-commerce Solutions</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Progressive Web Apps</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> API Development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Integration</h3>
+                        <p>Implement cutting-edge AI solutions including local LLMs, MLX framework, and custom AI models for your applications.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Local LLM Setup</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> AI Chatbots</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> MLX Implementation</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Custom AI Solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Technical Guides & Documentation</h3>
+                        <p>Comprehensive technical guides, API documentation, and tutorials to help teams understand and maintain complex systems.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> API Documentation</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Setup Guides</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Code Tutorials</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Best Practices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Automation & DevOps</h3>
+                        <p>Streamline your development workflow with CI/CD pipelines, automated testing, and infrastructure as code.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> CI/CD Setup</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Docker & Kubernetes</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Cloud Deployment</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Monitoring Setup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Technical Consulting</h3>
+                        <p>Strategic technical guidance to help businesses make informed decisions about technology stack and architecture.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Tech Stack Analysis</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Architecture Design</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Code Reviews</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: #667eea; margin-right: 0.5rem;"></i> Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `,
+    
+    projects: `
+        <section class="modern-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <p>A showcase of my recent work across different technologies</p>
+                </div>
+                
+                <div class="projects-showcase">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-comments"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/local-chat-mlx" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" onclick="alert('Demo coming soon!')">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Local Chat MLX</h3>
+                            <p>A powerful local chat implementation using Apple's MLX framework for running LLMs like Llama locally. Features include context preservation, multi-model support, and privacy-focused design.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">MLX</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">LLM</span>
+                                <span class="tech-tag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fab fa-android"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/TaskMaster-Android" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" onclick="alert('Available on Play Store soon!')">
+                                        <i class="fab fa-google-play"></i> Store
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>TaskMaster Pro</h3>
+                            <p>A comprehensive Android task management app with AI-powered suggestions, cloud sync, and beautiful Material Design UI. Features smart notifications and productivity analytics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">ML Kit</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-home"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/React-FollowUpProject-HousesMarketplace" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" onclick="alert('Live demo available soon!')">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>React Houses Marketplace</h3>
+                            <p>A modern real estate marketplace built with React and Firebase. Features include real-time listings, advanced search filters, virtual tours, and integrated messaging system.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Mapbox</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/Daily-tracker" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" onclick="alert('Demo coming soon!')">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Analytics Dashboard</h3>
+                            <p>A comprehensive analytics dashboard with real-time data visualization, custom reports, and AI-powered insights. Built for businesses to track KPIs effectively.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/JavaScript-61-FollowUpProjects" target="_blank">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" onclick="alert('Interactive demos coming soon!')">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>JavaScript Mastery Collection</h3>
+                            <p>A collection of 61 JavaScript projects demonstrating various concepts from basics to advanced. Perfect for learning and reference, with clean code and best practices.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <i class="fas fa-book-open"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Narcis-Ionut/TechGuides" target="_blank">
+                                        <i class="fab fa-github"></i> View
+                                    </a>
+                                    <a href="#" onclick="alert('Read guides on Medium!')">
+                                        <i class="fab fa-medium"></i> Read
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Technical Guide Series</h3>
+                            <p>Comprehensive technical guides covering modern development practices, from setting up local LLMs to deploying scalable applications on cloud platforms.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Documentation</span>
+                                <span class="tech-tag">Tutorials</span>
+                                <span class="tech-tag">Best Practices</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `,
+    
+    blog: `
+        <section class="modern-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest Blog Posts</h2>
+                    <p>Insights, tutorials, and thoughts on modern development</p>
+                </div>
+                
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-header">
+                            <i class="fas fa-brain" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Jan 15, 2025</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Running LLMs Locally with MLX: A Complete Guide</h3>
+                            <p>Learn how to set up and run large language models on your Mac using Apple's MLX framework. This guide covers installation, optimization, and best practices for local AI development.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fab fa-android" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Jan 10, 2025</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Building Your First Android App in 2025</h3>
+                            <p>A comprehensive guide to Android development using Kotlin and Jetpack Compose. From setup to Play Store deployment, everything you need to know to build modern Android apps.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-rocket" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Jan 5, 2025</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Next.js 14: Building Lightning-Fast Web Apps</h3>
+                            <p>Explore the latest features in Next.js 14 and learn how to build performant, SEO-friendly web applications. Includes practical examples and performance optimization tips.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <i class="fas fa-code" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Dec 28, 2024</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Clean Code Principles for Modern JavaScript</h3>
+                            <p>Master the art of writing clean, maintainable JavaScript code. This post covers SOLID principles, design patterns, and real-world examples to level up your coding skills.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-header" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            <i class="fas fa-cloud" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Dec 20, 2024</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Deploying Full-Stack Apps on AWS: A Step-by-Step Guide</h3>
+                            <p>Learn how to deploy your full-stack applications on AWS using modern DevOps practices. Covers EC2, RDS, S3, CloudFront, and CI/CD pipelines.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-header" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <i class="fas fa-shield-alt" style="font-size: 3rem; color: white;"></i>
+                            <span class="blog-date">Dec 15, 2024</span>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Web Security Best Practices for 2025</h3>
+                            <p>Stay ahead of security threats with this comprehensive guide to web application security. Learn about OWASP top 10, secure coding practices, and modern authentication methods.</p>
+                            <a href="#" class="blog-link" onclick="alert('Full article coming soon!')">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    `,
+    
+    contact: `
+        <section class="modern-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Let's Connect</h2>
+                    <p>Have a project in mind? Let's discuss how I can help bring your ideas to life</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p style="margin-bottom: 2rem;">I'm always interested in hearing about new projects and opportunities. Whether you need a full-stack developer, Android app, or AI integration, I'm here to help.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p>narcis.gusa@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location</strong>
+                                    <p>Available for Remote Work</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <p>Within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2rem;">
+                            <h4>Connect on Social</h4>
+                            <div class="social-icons" style="margin-top: 1rem;">
+                                <a href="https://github.com/Narcis-Ionut" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/narcis-gusa" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://twitter.com/narcisgusa" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="user_name">Your Name</label>
+                            <input type="text" id="user_name" name="user_name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user_email">Email Address</label>
+                            <input type="email" id="user_email" name="user_email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                        
+                        <div id="form-messages"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    `
+};
+
+// Initialize particles
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+}
+
+// Mobile menu toggle
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+
+// Navigation link click handler
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        loadPage(page);
+        
+        // Update active link
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        
+        // Close mobile menu
+        navLinks.classList.remove('active');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+    });
+});
+
+// Footer link handlers
+document.querySelectorAll('footer a[data-page]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        loadPage(page);
+        window.scrollTo(0, 0);
+    });
+});
+
+// Load page function
+function loadPage(page) {
+    // Add loading animation
+    content.style.opacity = '0';
+    
+    setTimeout(() => {
+        content.innerHTML = pages[page] || pages.home;
+        content.style.opacity = '1';
+        
+        // Initialize page-specific features
+        if (page === 'home') {
+            createParticles();
+        }
+        
+        if (page === 'contact') {
+            initContactForm();
+        }
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }, 300);
+}
+
+// Initialize contact form
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_niy5feb', 'template_9qkuxny', this)
+                .then(() => {
+                    const messages = document.getElementById('form-messages');
+                    messages.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                    messages.className = 'success';
+                    messages.style.display = 'block';
+                    form.reset();
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                })
+                .catch((error) => {
+                    const messages = document.getElementById('form-messages');
+                    messages.textContent = 'Failed to send message. Please try again or email directly.';
+                    messages.className = 'error';
+                    messages.style.display = 'block';
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    console.error('EmailJS Error:', error);
+                });
+        });
+    }
+}
+
+// Header scroll effect
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    // Show/hide scroll to top button
+    if (scrollTop > 500) {
+        scrollTop.classList.add('visible');
+    } else {
+        scrollTop.classList.remove('visible');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// Scroll to top button
+scrollTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Remove loading screen
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        loading.style.opacity = '0';
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 300);
+    }, 500);
+});
+
+// Initialize with home page
+loadPage('home');
+
+// Add smooth reveal animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+setTimeout(() => {
+    document.querySelectorAll('.service-card, .project-card, .blog-card, .stat-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+}, 1000);
+    </script>
+</body>
+</html>
